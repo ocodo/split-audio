@@ -1,14 +1,15 @@
 """
-This script splits an MP3 file into segments based on a provided cut list.
+This script splits an audio file into segments based on a provided cut list.
 Each segment is named according to the titles specified in the cut list.
 
 Usage:
-    python split_mp3.py -c cutlist.txt -i input.mp3 -o output_folder
+    python split_audio.py -c cutlist.txt -i input.mp3 -o output_folder -f mp3
 
 Arguments:
     -c, --cutlist: Path to the cut list file.
-    -i, --input: Path to the input MP3 file.
+    -i, --input: Path to the input audio file.
     -o, --output: Path to the output folder where the segments will be saved.
+    -f, --format: Format of the input audio file (e.g., mp3, wav, ogg, flac, aac, aiff, m4a, mp4, wma, alac).
 
 Cut List Format:
     The cut list file should contain lines in the following format:
@@ -68,8 +69,8 @@ def format_time(milliseconds):
     minutes, seconds = divmod(seconds, 60)
     return f"{minutes:02}:{seconds:02}"
 
-def split_mp3(input_file, cut_list, output_folder):
-    audio = AudioSegment.from_mp3(input_file)
+def split_audio(input_file, cut_list, output_folder, input_format):
+    audio = AudioSegment.from_file(input_file, format=input_format)
     os.makedirs(output_folder, exist_ok=True)
 
     for i in range(len(cut_list) - 1):
@@ -103,15 +104,16 @@ def split_mp3(input_file, cut_list, output_folder):
     print(f"Saved {last_output_file}")
 
 def main():
-    parser = argparse.ArgumentParser(description="Split an MP3 file at specified time marks.")
+    parser = argparse.ArgumentParser(description="Split an audio file at specified time marks.")
     parser.add_argument('-c', '--cutlist', required=True, help='Path to the cut list file')
-    parser.add_argument('-i', '--input', required=True, help='Path to the input MP3 file')
+    parser.add_argument('-i', '--input', required=True, help='Path to the input audio file')
     parser.add_argument('-o', '--output', required=True, help='Path to the output folder')
+    parser.add_argument('-f', '--format', required=True, help='Format of the input audio file (e.g., mp3, wav, ogg, flac, aac, aiff, m4a, mp4, wma, alac)')
 
     args = parser.parse_args()
 
     cut_list = parse_cut_list(args.cutlist)
-    split_mp3(args.input, cut_list, args.output)
+    split_audio(args.input, cut_list, args.output, args.format)
 
 if __name__ == "__main__":
     main()
