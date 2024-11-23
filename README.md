@@ -1,8 +1,3 @@
-Certainly! Below is a `README.md` file that provides an overview of the script, its usage, and instructions on how to run it.
-
-### README.md
-
-```markdown
 # Audio Splitter Script
 
 This script splits an audio file into segments based on a provided cut list. Each segment is named according to the titles specified in the cut list.
@@ -103,48 +98,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue.
 
-## Author
-
-- [Your Name]
-
 ## Acknowledgments
 
-- Thanks to the `pydub` library for providing the audio processing capabilities.
-```
-
-### Explanation
-
-1. **Overview**:
-   - Provides a brief description of the script and its features.
-
-2. **Usage**:
-   - Details the command line arguments and provides an example command.
-
-3. **Cut List Format**:
-   - Explains the format of the cut list file.
-
-4. **Example Cut List**:
-   - Provides an example cut list to demonstrate the format.
-
-5. **Installation**:
-   - Lists the prerequisites and installation steps.
-
-6. **Running the Script**:
-   - Provides instructions on how to run the script.
-
-7. **Example**:
-   - Includes an example cut list file and a command to run the script.
-
-8. **License**:
-   - Indicates the license under which the project is distributed.
-
-9. **Contributing**:
-   - Encourages contributions and provides instructions on how to contribute.
-
-10. **Author**:
-    - Lists the author of the script.
-
-11. **Acknowledgments**:
-    - Acknowledges the `pydub` library.
-
-This `README.md` file should provide all the necessary information for users to understand and use the script effectively.
+Thanks to the `pydub` library for providing the audio processing capabilities.
